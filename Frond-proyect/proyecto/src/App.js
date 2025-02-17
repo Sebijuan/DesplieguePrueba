@@ -57,7 +57,7 @@ function App() {
   // Función para eliminar un usuario
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`/api/users/${id}`); // Ruta de la API para eliminar usuario
+      await axios.delete(`http://localhost:3000/api/users/${id}`); // Ruta de la API para eliminar usuario
       setUsers(users.filter(user => user.id !== id));
       setMessage('Usuario eliminado');
     } catch (error) {
