@@ -12,7 +12,7 @@ function App() {
   // Función para obtener todos los usuarios
   const getUsers = async () => {
     try {
-      const response = await axios.get(' http://localhost:3000/api/users'); // Ruta de la API para obtener usuarios
+      const response = await axios.get('  https://api-kce7.onrender.com/api/users'); // Ruta de la API para obtener usuarios
       setUsers(response.data);
       setMessage('');
     } catch (error) {
