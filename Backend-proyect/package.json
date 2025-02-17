@@ -1,0 +1,12 @@
+{
+  "name": "mi-proyecto-express",
+  "version": "1.0.0",
+  "description": "Proyecto de ejemplo utilizando Express.js",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
