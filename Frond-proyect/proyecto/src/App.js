@@ -12,7 +12,7 @@ function App() {
   // Función para obtener todos los usuarios
   const getUsers = async () => {
     try {
-      const response = await axios.get('  https://api-kce7.onrender.com/api/users'); // Ruta de la API para obtener usuarios
+      const response = await axios.get('https://api-kce7.onrender.com/api/users'); // URL correcta
       setUsers(response.data);
       setMessage('');
     } catch (error) {
@@ -28,7 +28,7 @@ function App() {
     }
 
     try {
-      const response = await axios.post(' https://api-kce7.onrender.com/api/users', newUser); // Ruta de la API para crear usuario
+      const response = await axios.post('https://api-kce7.onrender.com/api/users', newUser); // URL correcta
       setUsers([...users, response.data]);
       setNewUser({ name: '', email: '' });
       setMessage('Usuario creado con éxito');
@@ -45,8 +45,8 @@ function App() {
     }
 
     try {
-      const response = await axios.put(`https://api-kce7.onrender.com/api/users/${userToUpdate.id}`, userToUpdate); // Ruta de la API para actualizar usuario
-      setUsers(users.map(user => user.id === userToUpdate.id ? response.data : user));
+      const response = await axios.put(`https://api-kce7.onrender.com/api/users/${userToUpdate.id}`, userToUpdate); // URL correcta
+      setUsers(users.map(user => user._id === userToUpdate.id ? response.data : user)); // Cambié "id" por "_id"
       setUserToUpdate({ id: '', name: '', email: '' });
       setMessage('Usuario actualizado con éxito');
     } catch (error) {
@@ -55,10 +55,10 @@ function App() {
   };
 
   // Función para eliminar un usuario
-  const deleteUser = async (id) => {
+  const deleteUser = async (_id) => {
     try {
-      await axios.delete(`https://api-kce7.onrender.com/api/users/${id}`); // Ruta de la API para eliminar usuario
-      setUsers(users.filter(user => user.id !== id));
+      await axios.delete(`https://api-kce7.onrender.com/api/users/${_id}`); // URL correcta
+      setUsers(users.filter(user => user._id !== _id)); // Cambié "id" por "_id"
       setMessage('Usuario eliminado');
     } catch (error) {
       setMessage('Error al eliminar el usuario');
@@ -80,9 +80,9 @@ function App() {
         {users.length > 0 && (
           <ul>
             {users.map(user => (
-              <li key={user.id}>
+              <li key={user._id}> {/* Cambié id por _id */}
                 {user.name} - {user.email}
-                <button onClick={() => deleteUser(user.id)}>Eliminar</button>
+                <button onClick={() => deleteUser(user._id)}>Eliminar</button> {/* Cambié id por _id */}
               </li>
             ))}
           </ul>
