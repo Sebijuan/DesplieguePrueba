@@ -12,7 +12,7 @@ function App() {
   // Función para obtener todos los usuarios
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users'); // Ruta de la API para obtener usuarios
+      const response = await axios.get('  https://api-kce7.onrender.com/api/users'); // Ruta de la API para obtener usuarios
       setUsers(response.data);
       setMessage('');
     } catch (error) {
@@ -28,7 +28,7 @@ function App() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users', newUser); // Ruta de la API para crear usuario
+      const response = await axios.post(' https://api-kce7.onrender.com/api/users', newUser); // Ruta de la API para crear usuario
       setUsers([...users, response.data]);
       setNewUser({ name: '', email: '' });
       setMessage('Usuario creado con éxito');
@@ -45,7 +45,7 @@ function App() {
     }
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/users/${userToUpdate.id}`, userToUpdate); // Ruta de la API para actualizar usuario
+      const response = await axios.put(`https://api-kce7.onrender.com/api/users/${userToUpdate.id}`, userToUpdate); // Ruta de la API para actualizar usuario
       setUsers(users.map(user => user.id === userToUpdate.id ? response.data : user));
       setUserToUpdate({ id: '', name: '', email: '' });
       setMessage('Usuario actualizado con éxito');
@@ -57,7 +57,7 @@ function App() {
   // Función para eliminar un usuario
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`); // Ruta de la API para eliminar usuario
+      await axios.delete(`https://api-kce7.onrender.com/api/users/${id}`); // Ruta de la API para eliminar usuario
       setUsers(users.filter(user => user.id !== id));
       setMessage('Usuario eliminado');
     } catch (error) {
