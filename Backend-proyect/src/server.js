@@ -12,6 +12,7 @@ app.use(cors()); // Enable CORS for all routes
 
 // Connect to MongoDB
 const MONGO_URI = process.env.MONGO_URI;
+console.log('MONGO_URI:', MONGO_URI); // Log the MONGO_URI value to verify it's being read correctly
 if (!MONGO_URI) {
     console.error('MongoDB connection error: MONGO_URI is not defined in .env file');
     process.exit(1);
