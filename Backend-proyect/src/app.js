@@ -12,7 +12,7 @@ const corsOptions = {
   origin: 'https://despliegue-prueba-kohl.vercel.app',
   optionsSuccessStatus: 200
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); // Enable CORS for all routes
 
 const mongoURI = process.env.MONGO_URI;
 if (!mongoURI) {
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 });
 
 // Use the user routes
-app.use('/api', userRoutes);
+app.use('/api/users', userRoutes);
 
 // Add a route to check if the server is running
 app.get('/', (req, res) => {
@@ -48,6 +48,11 @@ app.get('/', (req, res) => {
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({ message: 'Internal Server Error' });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
