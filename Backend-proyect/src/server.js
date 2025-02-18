@@ -12,6 +12,11 @@ app.use(cors()); // Enable CORS for all routes
 
 // Connect to MongoDB
 const MONGO_URI = process.env.MONGO_URI;
+if (!MONGO_URI) {
+    console.error('MongoDB connection error: MONGO_URI is not defined in .env file');
+    process.exit(1);
+}
+
 mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 20000, // Increase timeout to 20 seconds
     socketTimeoutMS: 45000, // Increase socket timeout to 45 seconds
