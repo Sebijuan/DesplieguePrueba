@@ -12,7 +12,7 @@ function App() {
   // Función para obtener todos los usuarios
   const getUsers = async () => {
     try {
-      const response = await axios.get('https://api-kce7.onrender.com/api/users'); // URL correcta
+      const response = await axios.get('https://despliegueprueba-2.onrender.com/api/users'); // URL correcta
       setUsers(response.data);
       setMessage('');
     } catch (error) {
@@ -28,7 +28,7 @@ function App() {
     }
 
     try {
-      const response = await axios.post('https://api-kce7.onrender.com/api/users', newUser); // URL correcta
+      const response = await axios.post('https://despliegueprueba-2.onrender.com/api/users', newUser); // URL correcta
       setUsers([...users, response.data]);
       setNewUser({ name: '', email: '' });
       setMessage('Usuario creado con éxito');
@@ -45,7 +45,7 @@ function App() {
     }
 
     try {
-      const response = await axios.put(`https://api-kce7.onrender.com/api/users/${userToUpdate.id}`, userToUpdate); // URL correcta
+      const response = await axios.put(`https://despliegueprueba-2.onrender.com/api/users/${userToUpdate.id}`, userToUpdate); // URL correcta
       setUsers(users.map(user => user._id === userToUpdate.id ? response.data : user)); // Cambié "id" por "_id"
       setUserToUpdate({ id: '', name: '', email: '' });
       setMessage('Usuario actualizado con éxito');
@@ -57,7 +57,7 @@ function App() {
   // Función para eliminar un usuario
   const deleteUser = async (_id) => {
     try {
-      await axios.delete(`https://api-kce7.onrender.com/api/users/${_id}`); // URL correcta
+      await axios.delete(`https://despliegueprueba-2.onrender.com/api/users/${_id}`); // URL correcta
       setUsers(users.filter(user => user._id !== _id)); // Cambié "id" por "_id"
       setMessage('Usuario eliminado');
     } catch (error) {
