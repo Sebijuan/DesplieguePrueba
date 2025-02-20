@@ -9,7 +9,7 @@ app.use(express.json()); // Ensure this middleware is set up
 
 // Configure CORS to allow requests from your frontend's origin
 const corsOptions = {
-  origin: 'https://despliegue-prueba-kohl.vercel.app',
+  origin: 'https://despliegueprueba-2.onrender.com',
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions)); // Enable CORS for all routes
